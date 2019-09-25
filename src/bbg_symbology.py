@@ -72,9 +72,11 @@ class BbgFuturesTckr():
 
 class FuturesChainReference:
     """Handles Futures Chain Data. Requires *futchain.csv* to be up to date"""
+    _fut_chain = None
 
-    def __init__(self, fut_chain_src):
-        self._fut_chain = self._load_historical_futures_chain(fut_chain_src)
+    def __init__(self, fut_chain_src=None):
+        if FuturesChainReference._fut_chain is None:
+            FuturesChainReference._fut_chain = self._load_historical_futures_chain(fut_chain_src)
 
     def _load_historical_futures_chain(self, srcfile):
         """load futures chain tickers stored in csv file"""
@@ -97,8 +99,9 @@ class FuturesChainReference:
 
 class BloombergTckrService:
     """Handles Bloomberg 2 digit/1 digit year code issues. Requires *futchain*.csv reference file to be up-to-date"""
-    def __init__(self, FutChainRef):
+    def __init__(self):
 
+        FutChainRef = FuturesChainReference()
         self.full_abb, self.abb_full = self._setup_tckr_references(FutChainRef)
 
     def _setup_tckr_references(self, FutChainRef):
@@ -136,14 +139,16 @@ class BloombergTckrService:
         """converts alias ticker to bloomberg ticker"""
         return self.abb_full[abb_tckr]
 
-
 class FuturesAliasService:
     """Handles Bloomberg 2 digit/1 digit year code issues"""
 
-    def __init__(self, fut_ref_src, BbgTckrSrvc):
+    _fut_ref = None
 
-        self._fut_ref = self._load_futures_ref(fut_ref_src)
-        self._BbgTckrSrvc = BbgTckrSrvc
+    def __init__(self, fut_ref_src=None):
+        if FuturesAliasService._fut_ref is None:
+            FuturesAliasService._fut_ref = self._load_futures_ref(fut_ref_src)
+
+        self._BbgTckrSrvc = BloombergTckrService()
 
     def _load_futures_ref(self, fut_ref_src):
         """load futures reference"""
@@ -170,11 +175,8 @@ class FuturesAliasService:
 
         return alias_root + '.' + btckr.month + btckr.year
 
+
 INPUT_PATH = '../_in/'
 
+FUTURES_MONTHS = {m:i+1 for i,m in enumerate('FGHJKMNQUVXZ')}
 FutChainRef = FuturesChainReference(INPUT_PATH + 'futures_historical_chain.csv')
-BbgTckrService = BloombergTckrService(FutChainRef)
-FutAliasRef = FuturesAliasService(INPUT_PATH + 'fut_roots.csv', BbgTckrService)
-
-x = FutAliasRef.bbg_to_alias_tckr('CLZ15 Comdty')
-print(x)
