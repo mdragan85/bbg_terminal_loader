@@ -1,0 +1,47 @@
+BbgTckr,Alias
+US0001M Index,us.1m
+EUR001M Index,eu.1m
+CDOR01 Index,cn.1m
+BP0001M Index,uk.1m
+BBSW1M Index,au.1m
+JY0001M Index,jy.1m
+USGG10YR Index,us.10y
+GDBR10 Index,eu.10y
+GCAN10YR Index Index,cn.10y
+GUKG10 Index Index,uk.10y
+GACGB10 Index,au.10y
+GJGB10 Index Index,jp.10y
+GNOR10YR Index,no.10y
+GSGB10YR Index,se.10y
+GNZGB10 Index,nz.10y
+GSWISS10 Index,ch.10y
+USGG2YR Index,us.2y
+GDBR2 Index,eu.2y
+GCAN2YR Index Index,cn.2y
+GUKG2 Index Index,uk.2y
+GACGB2 Index,au.2y
+GJGB2 Index Index,jp.2y
+GNOR2YR Index,no.2y
+GSGB2YR Index,se.2y
+GNZGB2 Index,nz.2y
+GSWISS2 Index,ch.2y
+USGG7YR Index,us.7y
+GDBR7 Index,eu.7y
+GCAN7YR Index Index,cn.7y
+GUKG7 Index Index,uk.7y
+GACGB7 Index,au.7y
+GJGB7 Index Index,jp.7y
+GNOR7YR Index,no.7y
+GSGB7YR Index,se.7y
+GNZGB7 Index,nz.7y
+GSWISS7 Index,ch.7y
+FDTR Index,us.cb
+SZLTHIGH Index,ch.cb
+EURR002W Index,eu.cb
+CABROVER Index,cn.cb
+UKBRBASE Index,uk.cb
+RBATCTR Index,au.cb
+BOJDPBAL Index,jp.cb
+SWRRATEI Index,sw.cb
+NZOCR Index,nz.cb
+NOBRDEPA Index,no.cb

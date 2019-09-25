@@ -1,0 +1,15 @@
+BbgTckr,Alias
+NYM1CNCL Index,cot.cl.nc.f.long
+NYM1CNCS Index,cot.cl.nc.f.short
+NYM1CNCP Index,cot.cl.nc.f.sprd
+NYMOCNCL Index,cot.cl.nc.fo.long
+NYMOCNCS Index,cot.cl.nc.fo.short
+NYMOCNCP Index,cot.cl.nc.fo.sprd
+NYM1CCOL Index,cot.cl.cm.f.long
+NYM1CCOS Index,cot.cl.cm.f.short
+NYMOCCOL Index,cot.cl.cm.fo.long
+NYMOCCOS Index,cot.cl.cm.fo.short
+NYM1CNRL Index,cot.cl.nr.f.long
+NYM1CNRS Index,cot.cl.nr.f.short
+NYMOCNRL Index,cot.cl.nr.fo.long
+NYMOCNRS Index,cot.cl.nr.fo.short
