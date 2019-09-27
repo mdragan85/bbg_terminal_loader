@@ -3,7 +3,7 @@ import tia.bbg.datamgr as dm
 from datetime import datetime
 from tia.bbg import LocalTerminal
 
-def bbg_load_ts(bbg_tckr, bbg_flds, start='1/1/1960', end='TODAY'):
+def bbg_load_ts(bbg_tckr, bbg_flds, start='1/1/1955', end='TODAY'):
     if end == 'TODAY':
         end = datetime.now().strftime("%m/%d/%Y")
 

@@ -1,4 +1,5 @@
 from datetime import datetime
+import numpy as np
 import pandas as pd
 from pandas.tseries.offsets import BDay
 
@@ -36,7 +37,7 @@ class BbgSecurity():
     def from_file(cls, filename):
         try:
             with open(filename, 'rb') as f:
-                d = pickle.load(f)
+                d = pickle.load(f)  # for python 3-->, encoding='latin1')
 
             return cls(**d)
         except IOError:
@@ -76,8 +77,19 @@ class BbgSecurity():
     def is_expired(self):
         if 'LAST_TRADEABLE_DT' in self.meta:
             if self.last_datapoint is not None:
-                if self.last_datapoint >= self.meta['LAST_TRADEABLE_DT']:
-                    return True
+
+                last_dt_days_ago = -(self.meta['LAST_TRADEABLE_DT'] - datetime.now()).days
+                last_dt_data_delta = (self.last_datapoint - self.meta['LAST_TRADEABLE_DT']).days
+
+                # if security expired a long time ago...
+                if last_dt_days_ago > 100:
+                    # if series ends within 10 days of expected expiry dt
+                    if np.abs(last_dt_data_delta) <= 10:
+                        return True
+                # if recently expired security
+                else:
+                    if np.abs(last_dt_data_delta) < 1:
+                        return True
 
         return False
 
@@ -202,3 +214,4 @@ class BbgSecurity():
     def __repr__(self):
         return ('<BBG SECURITY: tckr=' + self.bb_tckr + ', alias=' + self.alias +
                 ', local_file=' + self.local_path + '>')
+

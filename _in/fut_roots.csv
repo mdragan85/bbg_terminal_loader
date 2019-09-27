@@ -9,7 +9,6 @@ vg,1,Index,vg
 z ,1,Index,z
 cf,1,Index,cf
 gx,1,Index,gx
-sm,1,Index,sm
 nk,1,Index,nk
 tp,1,Index,tp
 xp,1,Index,xp
@@ -73,7 +72,6 @@ bp,1,Curncy,bp
 nv,1,Curncy,nv
 se,1,Curncy,se
 no,1,Curncy,no
-br,1,Curncy,br
 ra,1,Curncy,ra
 ru,1,Curncy,ru
 pe,1,Curncy,pe
